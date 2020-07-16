@@ -1,38 +1,131 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-color: #eeeeef;
+    --key-color: #000;
+    --key-bg-color: #d6d6d6;
+    --text-color: #333;
+    --display-color: #333;
   }
 }
 
-.App-header {
-  background-color: #282c34;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: linear-gradient(135deg, #3b3b3b, #030303);
+    --key-color: #fff;
+    --key-bg-color: #333;
+    --text-color: #fff;
+    --display-color: #eee;
+  }
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
   min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
-  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #ddd;
 }
 
-.App-link {
-  color: #61dafb;
+.calculator {
+  width: 375px;
+  height: 644px;
+  padding: 37px;
+  background: var(--bg-color);
+  border-radius: 15px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.calculator .keyboard {
+  padding-top: 30px;
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: 15px;
 }
+
+.calculator .keyboard .key {
+  width: 64px;
+  height: 64px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: var(--key-color);
+  border-radius: 50%;
+  border: 1px solid var(--key-bg-color);
+  font-size: 2rem;
+  cursor: pointer;
+  -webkit-transition: 200ms ease;
+  transition: 200ms ease;
+}
+
+.calculator .keyboard .key:hover {
+  -webkit-transform: scale(0.95);
+  transform: scale(0.95);
+}
+
+.calculator .keyboard .key.red {
+  border-color: #ff7555;
+  background-color: #ff7555;
+}
+
+.calculator .keyboard .key.gray {
+  background-color: var(--key-bg-color);
+  color: #979797;
+}
+
+.calculator .keyboard .key.void {
+  visibility: hidden;
+}
+
+.calculator .display {
+  padding: 30px 0;
+  width: 100%;
+  border-top: 1px solid #707070;
+  border-bottom: 1px solid #707070;
+  color: var(--display-color);
+  text-align: right;
+  cursor: none;
+}
+
+.calculator .display .formula {
+  font-size: 1.5rem;
+}
+
+.calculator .display .result {
+  font-size: 3rem;
+}
+
+footer p {
+  margin-top: 1rem;
+  color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+}
+/*# sourceMappingURL=style.css.map */
