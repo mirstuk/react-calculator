@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
-
 @media (prefers-color-scheme: light) {
   :root {
     --bg-color: #eeeeef;
@@ -15,6 +13,7 @@
     --bg-color: linear-gradient(135deg, #3b3b3b, #030303);
     --key-color: #fff;
     --key-bg-color: #333;
+    --key-bg-color-active: hsl(0, 0%, 40%);
     --text-color: #fff;
     --display-color: #eee;
   }
@@ -92,6 +91,10 @@ body {
   transform: scale(0.95);
 }
 
+.calculator .keyboard .key.active {
+  background-color: var(--key-bg-color);
+}
+
 .calculator .keyboard .key.red {
   border-color: #ff7555;
   background-color: #ff7555;
@@ -101,6 +104,11 @@ body {
 .calculator .keyboard .key.gray {
   background-color: var(--key-bg-color);
   color: #979797;
+}
+
+.calculator .keyboard .key.gray.active {
+  background-color: var(--key-bg-color-active);
+  border-color: var(--key-bg-color-active);
 }
 
 .calculator .keyboard .key.void {
@@ -131,4 +139,3 @@ footer p {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
 }
-/*# sourceMappingURL=style.css.map */
