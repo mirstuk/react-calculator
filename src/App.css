@@ -101,6 +101,11 @@ body {
   color: #fff;
 }
 
+.calculator .keyboard .key.red.active {
+  border-color: #fc8b72;
+  background-color: #fc8b72;
+}
+
 .calculator .keyboard .key.gray {
   background-color: var(--key-bg-color);
   color: #979797;
@@ -118,18 +123,21 @@ body {
 .calculator .display {
   padding: 30px 0;
   width: 100%;
+  height: 160px;
   border-top: 1px solid #707070;
   border-bottom: 1px solid #707070;
   color: var(--display-color);
-  text-align: right;
   cursor: none;
+  overflow: hidden;
 }
 
 .calculator .display .formula {
+  text-align: right;
   font-size: 1.5rem;
 }
 
 .calculator .display .result {
+  text-align: right;
   font-size: 3rem;
 }
 
