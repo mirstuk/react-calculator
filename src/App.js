@@ -1,4 +1,5 @@
 import React, { useEffect, useReducer } from 'react';
+import { evaluate } from 'mathjs';
 import './App.css';
 
 const initialState = {
@@ -21,7 +22,10 @@ const reducer = (state = initialState, action) => {
       }
       newState.isNumber = true;
       newState.isOperator = false;
-      if (!newState.isOperator) newState.result = eval(newState.formula);
+      if (!newState.isOperator) {
+        console.warn('too many evaluations!!!');
+        newState.result = evaluate(newState.formula);
+      }
       return newState;
     case 'DECIMAL':
       let lastNumber = state.formula.match(/([\d]+|[\d]+[.]?[\d]+)$/g);
@@ -68,11 +72,13 @@ const reducer = (state = initialState, action) => {
       } else {
         newState.formula = state.formula.slice(0, -1);
         if (!newState.formula.match(/[\d]$/)) {
-          newState.result = eval(newState.formula.slice(0, -1));
+          console.info('not number ending formula');
+          newState.result = evaluate(newState.formula.slice(0, -1));
           newState.isNumber = false;
           newState.isOperator = true;
         } else {
-          newState.result = eval(newState.formula);
+          console.info('number ending formula');
+          newState.result = evaluate(newState.formula);
           newState.isNumber = true;
           newState.isOperator = false;
         }
